@@ -1,0 +1,33 @@
+/* ustawiamy slajder na środku */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* ustawienie stałej wielkości strzałek */
+.arrow {
+    width: 24px;
+    height: 24px;
+}
+/* niewidczone elementy */
+.slide {
+    display: none;
+}
+
+/* element widoczny / aktywny*/
+.active {
+    display: inline-block;
+}
+/* ustawiamy kropki na środku */
+.dots {
+    display: flex;
+    justify-content: center;
+}
+/* tworzymy kropki */
+.dot {
+    background-color: grey;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 10px;
+}
