@@ -1,0 +1,1 @@
+w tym projekcie znajduje sie slajder zbudowany na zajeciach z html css i js 
