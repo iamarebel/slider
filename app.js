@@ -1,11 +1,8 @@
-let person1 = {
-  name: "Filip ",
-  lastName: "Mamama"
-}
+let arrowRight = document.querySelector("#arrow-right");
 
-let person2 = {
-  name: "agnieszka ",
-  lastName: "kondek"
-}
-console.log(person1.name + person1.lastName);
-console.log(person2.name + person2.lastName);
+let function3 = () => {
+  console.log("strzałka kliknięta!");
+};
+
+arrowRight.addEventListener("click", function3);
+
