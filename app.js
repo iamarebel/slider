@@ -19,33 +19,33 @@ let dot1 = document.querySelector("#dot1");
 let dot2 = document.querySelector("#dot2");
 let dot3 = document.querySelector("#dot3");
 let dot4 = document.querySelector("#dot4");
-let slide1 = document.querySelector("#slide1");
-let slide2 = document.querySelector("#slide2");
-let slide3 = document.querySelector("#slide3");
-let slide4 = document.querySelector("#slide4");
 
-let showSlide1 = () => {
+
+// wyciagamy osobna funkcje dla powtarzajacego sie kodu i wklejamy funkcje w reszte funkcji aby ise wywolywala
+let showSlide = (slideNumber) => {
+  document.querySelector("#slide" + slideNumber).classList.add("active");
+};
+
+let hideActiveElement = () => {
+  hideActiveElement();
   let activeElement = document.querySelector(".active");
   activeElement.classList.remove("active");
-  slide1.classList.add("active");  // nie z kropka tylko nazwa  - dodajemy active
+}
+
+let showSlide1 = () => {
+  showSlide(1);
 }
 
 let showSlide2 = () => {
-  let activeElement = document.querySelector(".active");
-  activeElement.classList.remove("active");
-  slide2.classList.add("active");  // nie z kropka tylko nazwa  - dodajemy active
+  showSlide(2);
 }
 
 let showSlide3 = () => {
-  let activeElement = document.querySelector(".active");
-  activeElement.classList.remove("active");
-  slide3.classList.add("active");
+  showSlide(3);
 }
 
 let showSlide4 = () => {
-  let activeElement = document.querySelector(".active");
-  activeElement.classList.remove("active");
-  slide4.classList.add("active");
+  showSlide(4);
 }
 //niech kroka slucha na klikniecie, na co,  mechanizm  
 dot1.addEventListener("click", showSlide1);
