@@ -20,17 +20,21 @@ let dot2 = document.querySelector("#dot2");
 let dot3 = document.querySelector("#dot3");
 let dot4 = document.querySelector("#dot4");
 
+let hideActiveElement = () => {
+  let activeElement = document.querySelector(".active");
+  activeElement.classList.remove("active");
+
+  let activeDot = document.querySelector(".dot-active");
+  activeDot.classList.remove("dot-active");
+}
+
 
 // wyciagamy osobna funkcje dla powtarzajacego sie kodu i wklejamy funkcje w reszte funkcji aby ise wywolywala
 let showSlide = (slideNumber) => {
-  document.querySelector("#slide" + slideNumber).classList.add("active");
-};
-
-let hideActiveElement = () => {
   hideActiveElement();
-  let activeElement = document.querySelector(".active");
-  activeElement.classList.remove("active");
-}
+  document.querySelector("#slide" + slideNumber).classList.add("active");
+  document.querySelector("#dot" + slideNumber).classList.add("dot-active");
+};
 
 let showSlide1 = () => {
   showSlide(1);
