@@ -128,22 +128,72 @@ showSlide(activeSlideNumber);
 //###  FizzBuzz!
 
 
-let fizzBuzz = (n) => {
-  if (n % 15 === 0) {
-    // if sprawdza: czy n % 15 === true   , nie jest true bo jest 0
-    console.log("FizzBuzz!")
-  } else if (n % 5 === 0) {
-    console.log("Buzz");
-  }
-  else if (n % 3 === 0) {
-    console.log("Fizz");
-  }
-  else  {
-    console.log(n);
-  }
-}
+// let fizzBuzz = (n) => {
+//   if (n % 15 === 0) {
+//     // if sprawdza: czy n % 15 === true   , nie jest true bo jest 0
+//     console.log("FizzBuzz!")
+//   } else if (n % 5 === 0) {
+//     console.log("Buzz");
+//   }
+//   else if (n % 3 === 0) {
+//     console.log("Fizz");
+//   }
+//   else  {
+//     console.log(n);
+//   }
+// }
 
-fizzBuzz(7);
-fizzBuzz(10);
-fizzBuzz(45);
-fizzBuzz(9);
+// fizzBuzz(7);
+// fizzBuzz(10);
+// fizzBuzz(45);
+// fizzBuzz(9);
+
+
+//factorial(n) {
+  //jezeli n ===1 -> 1;
+  // jezeli n !== 1  -> n * silnia (n-1)
+  //return
+
+//f(3) -> 6
+//f(5) -> 120
+//f(6) -> 720 
+
+
+
+// let silnia = (n) => {
+//   if(n === 1) {
+//    return 1;
+//   } else {
+//     return n*silnia(n-1);
+//   }
+// }
+
+// silnia(6);
+
+// wywolanie rekourencyjne - funkcja wywoluje funkcje w sobie 
+
+
+ // napisz funkcje  wypisujaca  napsiz funkcje fibonacci ktora obliczy n-ty wyraz  ciagu fibonnaciego
+
+ // n to  numer liczby w ciagu 
+
+ //1 1 2 3 5 8 12 21 
+ //fibonacci(1) = 1
+
+ //jezeli n === lub n === 2  -> 1 
+ //jezeli n !== 1 i n !nn2 -> fibonacci(n-1) + fibonacci(n-2)
+
+
+
+ let fibonacci = (n) => {
+   if (n === 1) {
+     return 1;
+   }
+   else if (n === 2) {
+     return 1;
+   }
+   else {
+     return fibonacci(n-1) + fibonacci(n-2);
+    }  
+  }
+  console.log(fibonacci(10));
