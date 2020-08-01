@@ -104,5 +104,42 @@ arrowRight.addEventListener("click", showNextSlide);
 //nacisnienie strzalek na calej stronie
 document.addEventListener("keydown", onKeyDown);
 
-// wywolanie  z przywolanym numerem na nap oczatku
+// wywolanie  z przywolanym numerem na na poczatku
 showSlide(activeSlideNumber);
+
+// jest podzielna (nie ma reszty z dzielenia) przez 15 - FizzBuzz!
+
+// jest podzliena przez 3 - Fizz
+
+// jest podzliena przez 5 - Buzz
+
+// w innym przypadku wyswietlamy liczbe
+
+// operator dzielenia % ,zwraa reszte z dzielenia , modulo  np 5 % 2
+
+//zadanie:
+// fizzBuzz (1);
+// ### 1
+// fizzBuzz (3);
+// ### Fizz
+// fizzBuzz (5);
+// ### Buzz
+//fizzBuzz(15);
+//###  FizzBuzz!
+
+
+let fizzBuzz = (n) => {
+  if (n % 15 === 0) {
+    // if sprawdza: czy n % 15 === true   , nie jest true bo jest 0
+    console.log("FizzBuzz!")
+  } else if (n % 5 === 0) {
+    console.log("Buzz");
+  }
+  else if (n % 3 === 0) {
+    console.log("Fizz");
+  }
+  else  {
+    console.log(n);
+  }
+}
+fizzBuzz(7);
