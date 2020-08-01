@@ -142,4 +142,8 @@ let fizzBuzz = (n) => {
     console.log(n);
   }
 }
+
 fizzBuzz(7);
+fizzBuzz(10);
+fizzBuzz(45);
+fizzBuzz(9);
