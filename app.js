@@ -11,14 +11,24 @@ let dot4 = document.querySelector("#dot4");
 let arrowLeft = document.querySelector("#arrow-left");
 let arrowRight = document.querySelector("#arrow-right");
 
+// dodajemy uniwersalne wyszukanie wszystkich slajdow - dlugosc tablicy 
+let numberofSlides = document.querySelectorAll(".slide").length;
 
 let hideActiveElement = () => {
-  let activeElement = document.querySelector(".active");
-  activeElement.classList.remove("active");
 
+  let activeElement = document.querySelector(".active");
+  // jesli jest aktywny element juz na stronie 
+  if (activeElement) {
+    // to usun aktywna kalse
+    activeElement.classList.remove("active");
+  }
+  //to samo z kropka 
   let activeDot = document.querySelector(".dot-active");
-  activeDot.classList.remove("dot-active");
-}
+  if (activeDot) {
+    activeDot.classList.remove("dot-active");
+  }
+};
+
 
 
 // wyciagamy osobna funkcje dla powtarzajacego sie kodu i wklejamy funkcje w reszte funkcji aby ise wywolywala
@@ -47,8 +57,9 @@ let showSlide4 = () => {
 
 // funkcja do strzalki w lewo
 let showPreviousSlide =() => {
+  // === operator równości
   if (activeSlideNumber === 1) {
-    showSlide(4);
+    showSlide(numberofSlides);
   }
   else {
     showSlide(activeSlideNumber - 1);
@@ -59,7 +70,7 @@ let showPreviousSlide =() => {
 let showNextSlide = () => {
   // pokaz aktywny slajd + jeden po nacisnie w prawo
   // jesli jestesmy na ostatnim to skocz na pierwszy slajd - uzycie nistrkucji warunkowej if else 
-  if (activeSlideNumber === 4) {
+  if (activeSlideNumber === numberofSlides) {
     showSlide(1);
   }
   else {
@@ -78,3 +89,6 @@ dot4.addEventListener("click", showSlide4);
 arrowLeft.addEventListener("click", showPreviousSlide);
 // nasluchuj na klikniecie na strzalke w prawo
 arrowRight.addEventListener("click", showNextSlide);
+
+// wywolanie  z przywolanym numerem na nap oczatku
+showSlide(activeSlideNumber);
