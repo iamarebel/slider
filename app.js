@@ -6,7 +6,6 @@ let dot2 = document.querySelector("#dot2");
 let dot3 = document.querySelector("#dot3");
 let dot4 = document.querySelector("#dot4");
 
-
 // deklaracja zmiennych z strzalkami , szukamy w dokumencie
 let arrowLeft = document.querySelector("#arrow-left");
 let arrowRight = document.querySelector("#arrow-right");
@@ -28,8 +27,6 @@ let hideActiveElement = () => {
     activeDot.classList.remove("dot-active");
   }
 };
-
-
 
 // wyciagamy osobna funkcje dla powtarzajacego sie kodu i wklejamy funkcje w reszte funkcji aby ise wywolywala
 let showSlide = (slideNumber) => {
@@ -79,6 +76,20 @@ let showNextSlide = () => {
   }
 }
  
+let onKeyDown = (event) => {
+  //dodajemy dwa warunki -zeby dzialala obsluga slajdera z klawiatury (lewo i prawo)
+
+  // porownaj czy keycode jest 39 czlyi czy jest strzalka w prawo
+  if (event.keyCode === 39) {
+  //jesli klikamy strzalke w prawo na klawiaturze  
+    showNextSlide();
+  } 
+  
+  if (event.keyCode === 37) {
+  // jelsi  klikamy strzalke w lewo  do slajd w lewo
+    showPreviousSlide();
+  }
+}
 //niech kropka slucha na klikniecie, na co,  mechanizm  
 dot1.addEventListener("click", showSlide1);
 dot2.addEventListener("click", showSlide2);
@@ -89,6 +100,9 @@ dot4.addEventListener("click", showSlide4);
 arrowLeft.addEventListener("click", showPreviousSlide);
 // nasluchuj na klikniecie na strzalke w prawo
 arrowRight.addEventListener("click", showNextSlide);
+
+//nacisnienie strzalek na calej stronie
+document.addEventListener("keydown", onKeyDown);
 
 // wywolanie  z przywolanym numerem na nap oczatku
 showSlide(activeSlideNumber);
