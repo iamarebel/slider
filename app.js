@@ -1,12 +1,17 @@
 //zmienna reprezentujaca numer aktywnego slajdu
-let activeSlideNumber = 1;
+let activeSlideNumber = 0;
 
 // deklaracja zmiennych z strzalkami , szukamy w dokumencie
-let arrowLeft = document.querySelector("#arrow-left");
-let arrowRight = document.querySelector("#arrow-right");
+const arrowLeft = document.querySelector("#arrow-left");
+const arrowRight = document.querySelector("#arrow-right");
 
 // dodajemy uniwersalne wyszukanie wszystkich slajdow - dlugosc tablicy 
-let numberofSlides = document.querySelectorAll(".slide").length;
+
+// QSall zworcil nam tablice wszystkich elementow o klasie .dot
+const dots = document.querySelectorAll(".dot");
+const slides = document.querySelectorAll(".slide");
+
+const numberofSlides = document.querySelectorAll(".slide").length;
 
 let hideActiveElement = () => {
 
@@ -25,17 +30,21 @@ let hideActiveElement = () => {
 
 // wyciagamy osobna funkcje dla powtarzajacego sie kodu i wklejamy funkcje w reszte funkcji aby ise wywolywala
 let showSlide = (slideNumber) => {
+  // i === 0
   activeSlideNumber = slideNumber;
   hideActiveElement();
-  document.querySelector("#slide" + slideNumber).classList.add("active");
-  document.querySelector("#dot" + slideNumber).classList.add("dot-active");
+  //slides === [slide1, slide2 ...]
+  // dcoument.querySelector(#slide1") === slide1
+ // dcoument.querySelector(#slide1") === slides[]
+  slides[slideNumber].classList.add("active");
+  dots[slideNumber].classList.add("dot-active");
 };
 
 // funkcja do strzalki w lewo
 let showPreviousSlide =() => {
   // === operator równości
-  if (activeSlideNumber === 1) {
-    showSlide(numberofSlides);
+  if (activeSlideNumber  === 0) {
+    showSlide(numberofSlides - 1);
   }
   else {
     showSlide(activeSlideNumber - 1);
@@ -46,8 +55,8 @@ let showPreviousSlide =() => {
 let showNextSlide = () => {
   // pokaz aktywny slajd + jeden po nacisnie w prawo
   // jesli jestesmy na ostatnim to skocz na pierwszy slajd - uzycie nistrkucji warunkowej if else 
-  if (activeSlideNumber === numberofSlides) {
-    showSlide(1);
+  if (activeSlideNumber + 1 === numberofSlides) {
+    showSlide(0);
   }
   else {
      // w innym przypadku 
@@ -86,9 +95,10 @@ showSlide(activeSlideNumber);
 //definiowanie funkcji pokazujacej dany slajd
 //przypisanie eventow do kropki
 
-for ( let i = 0; i < numberofSlides; i = i + 1) {
-  document.querySelector("#dot" + (i+1)).addEventListener("click", () => {
-    showSlide(i+1);
+for (let i = 0; i < numberofSlides; i = i + 1) {
+  // wyciagamy element o indeksie 0 z tablicy kropek 
+  dots[i].addEventListener("click", () => {
+    showSlide(i);
   });
 }
 
